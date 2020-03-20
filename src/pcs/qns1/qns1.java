@@ -4,43 +4,24 @@ import java.util.Arrays;
 
 public class qns1 {
 
-	 public int coinChangeOld(int[] coins, int amount) {
-		    if(amount<1) return 0;
-		    int[] dp = new int[amount+1];
-		    int sumTotal = 0;
+	public int coinChangeInt(int[] coins, int amount) {
+	    if(amount<1) return 0;
+		int[] dp = new int[amount+1];
+		 dp[0] = 0; //for $0, no coins needed
 		    
-			while(++sumTotal <= amount) {
-				int minCoin = -1;
-		    	for(int coin : coins) {
-		    		if(sumTotal >= coin && dp[sumTotal - coin] > -1) {
+		 // for everything else
+		 for (int amt = 1; amt <= amount; amt++) {
+			 dp[amt] = Integer.MAX_VALUE;
+			 
+			 for (int j = 0; j < coins.length; j++) {
+				 if (coins[j] <= amt) { // check if coin value is less than amount
+					 // select the coin and add 1 to solution of (amount-coin value)
+					 dp[amt] = Math.min(dp[amt - coins[j]] + 1, dp[amt]) ;
+				 }
+            }
+        }
 
-		    			int temp = dp[sumTotal - coin]+1;
-		    			minCoin = minCoin < 0 ? temp : (temp < minCoin ? temp : minCoin);
-		    		}
-		    	}
-		    	dp[sumTotal] = minCoin;
-			}
-			return dp[amount];
-	}
-	 
-	 public int coinChangeInt(int[] coins, int amount) {
-		    if(amount<1) return 0;
-		    int[] dp = new int[amount+1];
-		    dp[0] = 0; //for $0, no coins needed
-		    
-		    // for everything else
-		    for (int amt = 1; amt <= amount; amt++) {
-		    	dp[amt] = Integer.MAX_VALUE;
-	            
-	            for (int j = 0; j < coins.length; j++) {
-	                if (coins[j] <= amt) { // check if coin value is less than amount
-	                    // select the coin and add 1 to solution of (amount-coin value)
-	                	dp[amt] = Math.min(dp[amt - coins[j]] + 1, dp[amt]) ;
-	                }
-	            }
-	        }
-
-	        return dp[amount];
+		 return dp[amount];
 	}
 	 
 	 public int coinChange(double[] coins, double amount) {

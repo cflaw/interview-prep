@@ -18,16 +18,12 @@ public class interviewPrep {
 		// System.out.println("Q1: "+ q1.coinChangeInt(denom, amount));
 		
 		double[] dDenom =  { 1, 10, 5, 8 };
-		double dAmount = 13;
+		double dAmount = 41;
 		System.out.println("Q1 - problem 1: "+ q1.coinChange(dDenom, dAmount));
 		
-		int[] denom =  { 1, 10, 5, 8 };
-		int amount = 13;
-		System.out.println("Q1 - problem 1 (old): "+ q1.coinChangeOld(denom, amount));
-
 		// question 2 problem 1
 		problem1 q2p1 = new problem1();
-		int q2p1Results = q2p1.findLargest(18892);
+		int q2p1Results = q2p1.findLargest(1428892);
 		System.out.println("Q2 - problem 1: "+q2p1Results);
 		
 		// question 2 problem 2 - not complete

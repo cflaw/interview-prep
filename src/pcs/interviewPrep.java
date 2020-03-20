@@ -1,9 +1,11 @@
 package pcs;
-import pcs.qns1.*;
-import pcs.qns2.*;
-import pcs.qns3.*;
 
-public class main {
+import pcs.qns1.qns1;
+import pcs.qns2.problem1;
+import pcs.qns2.problem2;
+import pcs.qns3.qns3;
+
+public class interviewPrep {
 
 	public static void main(String[] args) {
 		
@@ -11,9 +13,9 @@ public class main {
 		// unit tests not done
 	
 		qns1 q1 = new qns1();
-//		int[] denom = { 1, 10, 5, 8 };
-//		int amount = 0;
-//		System.out.println("Q1: "+ q1.coinChangeInt(denom, amount));
+		// int[] denom = { 1, 10, 5, 8 };
+		// int amount = 0;
+		// System.out.println("Q1: "+ q1.coinChangeInt(denom, amount));
 		
 		double[] dDenom =  { 1, 10, 5, 8 };
 		double dAmount = 13;
@@ -40,5 +42,4 @@ public class main {
 		System.out.println("Q3 - problem 1: "+q3Results);
 
 	}
-
 }
